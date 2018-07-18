@@ -1,0 +1,49 @@
+Reglas para el examen de BISOFT
+
+Registro pokemon:
+
+	Numero pokedex = unico y numerico
+
+	Nombre pokemon = unico y con numeros y letras pero no caracteres especiales
+	
+	Tipo 1  (Tipo 2 opcional)
+
+	Foto del pokemon
+
+Listado pokemon:
+	
+	Debe tener todo, hasta la foto
+
+Busqueda pokemon:
+	
+	Busqueda por nombre y/o tipo
+
+====================================================================================
+
+Registro entrenador:
+
+	Numero de entrenador = unico y numerico
+	
+	Nombre del entrenador
+
+	Edad = numerico (edad > 15 && edad < 80)
+
+	Sexo
+
+	Foto
+
+Listar entrenadores:
+
+	Mostrar toda la informacion de los entrenadores y desde ahi se puede "Capturar pokemon"
+
+Busqueda entrenadores
+
+	Filtrar por nombre
+
+====================================================================================
+
+Capturar pokemon:
+
+	Asociar los pokemones al entrenador seleccionado en la tabla.
+
+	El pokemon debe quedar asignado al entrenador con numero de la pokedex y nombre del pok�mon como subdocumento del entrenador
