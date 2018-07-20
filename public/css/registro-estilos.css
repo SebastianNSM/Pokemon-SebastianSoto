@@ -40,6 +40,7 @@
     background: #F7F7F9;
     margin: 3em auto 0;
     position: relative;
+    text-align: center;
 }
 .content-box input, .content-box select{
     outline: none;
@@ -71,7 +72,15 @@
     box-shadow: none;
     font-weight: 100;
 }
-
+.content-box img{
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
+}
+#btnSeleccionarImagen{
+    margin-bottom: 24px;
+}
 input, select{
     -webkit-appearance: txtfield;
     background-color: white;

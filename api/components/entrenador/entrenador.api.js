@@ -4,6 +4,7 @@ const entrenadorModel = require('./entrenador.model');
 
 module.exports.registrar_entrenador = function(req,res){
     let nuevoEntrenador = new entrenadorModel({
+        foto_entrenador: req.body.foto_entrenador,
         nombre_entrenador: req.body.nombre_entrenador,
         numero_entrenador: req.body.numero_entrenador,
         edad_entrenador: req.body.edad_entrenador,

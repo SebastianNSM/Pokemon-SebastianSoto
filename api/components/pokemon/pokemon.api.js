@@ -4,6 +4,7 @@ const pokemonModel = require('./pokemon.model');
 
 module.exports.registrar_pokemon = function(req,res){
     let nuevoPokemon = new pokemonModel({
+        foto_pokemon: req.body.foto_pokemon,
         nombre_pokemon: req.body.nombre_pokemon,
         numero_pokemon: req.body.numero_pokemon,
         primer_tipo_pokemon: req.body.primer_tipo_pokemon,
@@ -13,12 +14,12 @@ module.exports.registrar_pokemon = function(req,res){
         if (error) {
             res.json({
                 success: false,
-                msg: 'Este entrenador no pudo ser registrado: ' + error
+                msg: 'Este pokémon no pudo ser registrado: ' + error
             });
         } else {
             res.json({
                 success: true,
-                msg: 'El entrenador ha sido registrado correctamente ' + error
+                msg: 'El pokémon ha sido registrado correctamente ' + error
             });
         }
     });
