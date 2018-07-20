@@ -17,7 +17,7 @@ $(function () {
     // Upload button event
     uploadButton.on('click', function (e) {
         // Initiate upload
-        cloudinary.openUploadWidget({ cloud_name: 'sebastiansm', upload_preset: 'entrenadorCloudSSM' },
+        cloudinary.openUploadWidget({ cloud_name: 'sebastiansm', upload_preset: 'pokemonCloudSSM' },
             function (error, result) {
                 if (error) console.log(error);
                 // If NO error, log image data to console
@@ -25,10 +25,8 @@ $(function () {
 
                 // Esto guarda el id en una variable global
                 imgID = id;
-
                 console.log(id);
                 console.log(getImgUrl(imgID));
-
                 setImgID(imgID);
 
                 return getImgUrl(imgID);

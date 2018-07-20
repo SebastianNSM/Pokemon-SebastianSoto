@@ -17,45 +17,62 @@
 </head>
 
 <body>
-        <header>
-                <h1>
-                    <a href="index.html">Pokémon Web</a>
-                </h1>
-                <nav>
-                    <a href="../html/index.html" id="lnkInicio">Inicio</a>
-                    <div class="menu-container">
-                        <button id="lnkPokemon" class="y-align ">
-                            Pokémones
-                            <i class="fas fa-sort-down"></i>
-                        </button>
-                        <div id="menuPokemon" class="menu">
-                            <a href="../html/entrenador-registrar.html">Registrar un pokémon</a>
-                            <a href="#">Listar pokémones</a>
-                        </div>
-                    </div>
-                    <div class="menu-container">
-                        <button id="lnkEntrenador" class="y-align ">Entrenadores
-                            <i class="fas fa-sort-down"></i>
-                        </button>
-                        <div id="menuEntrenador" class="menu">
-                            <a href="../html/pokemon_registrar.html">Registrar un entrenador</a>
-                            <a href="#">Listar entrenadores</a>
-                            <a href="#">Captura pokémones</a>
-                        </div>
-                    </div>
-        
-                </nav>
-            </header>
+    <header>
+        <h1>
+            <a href="index.html">Pokémon Web</a>
+        </h1>
+        <nav>
+            <a href="../html/index.html" id="lnkInicio">Inicio</a>
+            <div class="menu-container">
+                <button id="lnkPokemon" class="y-align ">
+                    Pokémones
+                    <i class="fas fa-sort-down"></i>
+                </button>
+                <div id="menuPokemon" class="menu">
+                    <a href="../html/pokemon_registrar.html">Registrar un pokémon</a>
+                    <a href="#">Listar pokémones</a>
+                </div>
+            </div>
+            <div class="menu-container">
+                <button id="lnkEntrenador" class="y-align ">Entrenadores
+                    <i class="fas fa-sort-down"></i>
+                </button>
+                <div id="menuEntrenador" class="menu">
+                    <a href="../html/entrenador-registrar.html">Registrar un entrenador</a>
+                    <a href="#">Listar entrenadores</a>
+                    <a href="#">Captura pokémones</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
     <main>
         <div class="format">
             <div class="form-container">
                 <h2>Registro de pokémones</h2>
                 <div class="content-box">
-                    <form>
+                    <form class="float">
+                        <div class="float-left">
+                            <img src="" alt="Foto sin registrar" id="txtImagen">
+                            <button type="button" id="btnSeleccionarImagen" class="addImg">Subir foto</button>
+                        </div>
+                        <div class="float-right">
+                            <div id="PokemonTypeList">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td>Foto</td>
+                                            <td>Nombre</td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <button type="button" id="btnSeleccionarTipo" class="addImg">Agregar tipo</button>
+                        </div>
                         <input id="txtNombrePokemon" type="text" placeholder="Nombre del pokémon" required>
-                        <input id="numNumeroPokedex" type="number" placeholder="Número de la pokedex" required>
+                        <input id="txtNumeroPokedex" type="number" placeholder="Código de la pokedex" required>
 
-                        <button type="button">Registrar</button>
+                        <button type="button" id="btnRegistrar">Registrar</button>
                     </form>
                 </div>
             </div>
@@ -104,6 +121,21 @@
             </div>
         </div>
     </footer>
-    <script src="/public/js/jquery v3.3.1.js"></script>
-    <script src="/public/js/navList.js"></script>
+    <!-- Jquey y Sweet alert -->
+    <script src="../js/jquery v3.3.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+
+    <!-- Cloudinary -->
+    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
+    <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+
+    <!-- Servicio Imagen -->
+    <script src="../js/pokemon/imagen_pokemon_servicio.js"></script>
+
+    <!-- Servicio y controlador elemento -->
+    <script src="../js/pokemon/registrar_pokemon_controlador.js"></script>
+    <script src="../js/pokemon/servicio_pokemon.js"></script>
+
+    <!-- Scripts Extra -->
+    <script src="../js/navList.js"></script>
 </body>

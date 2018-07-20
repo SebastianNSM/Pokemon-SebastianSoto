@@ -75,11 +75,21 @@
 .content-box img{
     width: 250px;
     height: 250px;
-    border-radius: 10px;
+    border: 1px solid #999;
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
 }
-#btnSeleccionarImagen{
-    margin-bottom: 24px;
+form{
+    position: relative;
+}
+#PokemonTypeList{
+    width: 250px;
+    height: 250px;
+    border: 1px solid #999;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.2);
+}
+form button.addImg{
+    width: 250px;
+    margin: 24px auto;
 }
 input, select{
     -webkit-appearance: txtfield;
@@ -92,4 +102,12 @@ input, select{
     border-color: initial;
     border-image: initial;
     margin-bottom: 20px;
+}
+
+form button:hover{
+    background-color: #fe9126
+}
+form button{
+    transition: .4s ease-in;
+    -webkit-transition: .4s ease-in;
 }
