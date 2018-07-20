@@ -6,7 +6,8 @@
     <title>Pokémon App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="../css/estandar.css">
     <link rel="stylesheet" href="../css/index-estilos.css">
 
@@ -21,9 +22,27 @@
             <a href="index.html">Pokémon Web</a>
         </h1>
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="pokemon_registrar.html">Pokémones</a>
-            <a href="entrenador-registrar.html">Entrenadores</a>
+            <a href="../html/index.html" id="lnkInicio">Inicio</a>
+            <div class="menu-container">
+                <button id="lnkPokemon" class="y-align ">
+                    Pokémones
+                    <i class="fas fa-sort-down"></i>
+                </button>
+                <div id="menuPokemon" class="menu">
+                    <a href="../html/entrenador-registrar.html">Registrar un pokémon</a>
+                    <a href="#">Listar pokémones</a>
+                </div>
+            </div>
+            <div class="menu-container">
+                <button id="lnkEntrenador" class="y-align ">Entrenadores
+                    <i class="fas fa-sort-down"></i>
+                </button>
+                <div id="menuEntrenador" class="menu">
+                    <a href="../html/pokemon_registrar.html">Registrar un entrenador</a>
+                    <a href="#">Listar entrenadores</a>
+                </div>
+            </div>
+
         </nav>
     </header>
 
@@ -120,7 +139,8 @@
         </div>
 
     </footer>
-
+    <script src="../js/jquery v3.3.1.js"></script>
+    <script src="../js/navList.js"></script>
 </body>
 
 </html>

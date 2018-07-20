@@ -22,9 +22,17 @@
             <a href="index.html">Pokémon Web</a>
         </h1>
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="pokemon_registrar.html">Pokémones</a>
-            <a href="entrenador-registrar.html">Entrenadores</a>
+            <a href="../html/index.html" id="lnkInicio">Inicio</a>
+            <button id="lnkPokemon">Pokémones<i class="fas fa-sort-down"></i></button>
+            <div id="menuPokemon" class="display-none">
+                <a href="../html/entrenador-registrar.html">Registrar un pokémon</a>
+                <a href="#">Listar pokémones</a>
+            </div>
+            <button id="lnkEntrenador">Entrenadores<i class="fas fa-sort-down"></i></button>
+            <div id="menuEntrenador" class="display-none">
+                <a href="../html/pokemon_registrar.html">Registrar un entrenador</a>
+                <a href="#">Listar entrenadores</a>
+            </div>
         </nav>
     </header>
     <main>
@@ -35,7 +43,7 @@
                     <form>
                         <input id="txtNombrePokemon" type="text" placeholder="Nombre del pokémon" required>
                         <input id="numNumeroPokedex" type="number" placeholder="Número de la pokedex" required>
-                        
+
                         <button type="button">Registrar</button>
                     </form>
                 </div>
@@ -43,47 +51,48 @@
         </div>
     </main>
     <footer>
-            <div class="footer-container">
-                <div>
-                    <h3>Contacto</h3>
-                    <ul>
-                        <li>
-                            <i class="fas fa-arrow-right"></i>
-                            <span>Teléfono: 68765294</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-arrow-right"></i>
-                            <span>Correo: ssotom@ucenfotec.ac.cr</span>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Pokémones</h3>
-                    <ul>
-                        <li>
-                            <i class="fas fa-arrow-right"></i>
-                            <span>Tipos</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-arrow-right"></i>
-                            <span>Pokémones registrados</span>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Entrenadores</h3>
-                    <ul>
-                        <li>
-                            <i class="fas fa-arrow-right"></i>
-                            <span>Captura un pokémon</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-arrow-right"></i>
-                            <span>Lista de entrenadores</span>
-                        </li>
-                    </ul>
-                </div>
+        <div class="footer-container">
+            <div>
+                <h3>Contacto</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Teléfono: 68765294</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Correo: ssotom@ucenfotec.ac.cr</span>
+                    </li>
+                </ul>
             </div>
-    
-        </footer>
+            <div>
+                <h3>Pokémones</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Tipos</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Pokémones registrados</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>Entrenadores</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Captura un pokémon</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Lista de entrenadores</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="/public/js/jquery v3.3.1.js"></script>
+    <script src="/public/js/navList.js"></script>
 </body>
