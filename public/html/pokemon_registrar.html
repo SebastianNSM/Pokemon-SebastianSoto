@@ -17,24 +17,35 @@
 </head>
 
 <body>
-    <header>
-        <h1>
-            <a href="index.html">Pokémon Web</a>
-        </h1>
-        <nav>
-            <a href="../html/index.html" id="lnkInicio">Inicio</a>
-            <button id="lnkPokemon">Pokémones<i class="fas fa-sort-down"></i></button>
-            <div id="menuPokemon" class="display-none">
-                <a href="../html/entrenador-registrar.html">Registrar un pokémon</a>
-                <a href="#">Listar pokémones</a>
-            </div>
-            <button id="lnkEntrenador">Entrenadores<i class="fas fa-sort-down"></i></button>
-            <div id="menuEntrenador" class="display-none">
-                <a href="../html/pokemon_registrar.html">Registrar un entrenador</a>
-                <a href="#">Listar entrenadores</a>
-            </div>
-        </nav>
-    </header>
+        <header>
+                <h1>
+                    <a href="index.html">Pokémon Web</a>
+                </h1>
+                <nav>
+                    <a href="../html/index.html" id="lnkInicio">Inicio</a>
+                    <div class="menu-container">
+                        <button id="lnkPokemon" class="y-align ">
+                            Pokémones
+                            <i class="fas fa-sort-down"></i>
+                        </button>
+                        <div id="menuPokemon" class="menu">
+                            <a href="../html/entrenador-registrar.html">Registrar un pokémon</a>
+                            <a href="#">Listar pokémones</a>
+                        </div>
+                    </div>
+                    <div class="menu-container">
+                        <button id="lnkEntrenador" class="y-align ">Entrenadores
+                            <i class="fas fa-sort-down"></i>
+                        </button>
+                        <div id="menuEntrenador" class="menu">
+                            <a href="../html/pokemon_registrar.html">Registrar un entrenador</a>
+                            <a href="#">Listar entrenadores</a>
+                            <a href="#">Captura pokémones</a>
+                        </div>
+                    </div>
+        
+                </nav>
+            </header>
     <main>
         <div class="format">
             <div class="form-container">

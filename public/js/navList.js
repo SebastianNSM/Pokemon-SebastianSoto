@@ -8,7 +8,7 @@ btnPokemon.click(function(){showMenu("#menuPokemon");});
 btnEntrenador.click(function(){showMenu("#menuEntrenador");});
 
 optBox.mouseleave(function(){
-    hideMenu(optBox);
+        hideMenu(optBox);
 });
 // Estas son las funciones generales
 function showMenu(pmenu) {
@@ -17,6 +17,6 @@ function showMenu(pmenu) {
     }
 };
 function hideMenu(pmenu) {
-    $(pmenu).hide();
+    $(pmenu).fadeOut(250);
 };
 // Estas son las funciones generales

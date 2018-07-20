@@ -81,19 +81,28 @@ header nav .fas.fa-sort-down{
 .menu{
     display: none;
     position: absolute;
-    width: 100px;
+    width: 175px;
     line-height: 2em;
     background-color: #fff;
-    padding: 10px 15px;
+    padding: 0px;
     z-index: 1000;
     
     text-align: left;
     list-style: none;
-    border: 1px solid #ccc;
 }
 .menu a{
-    color: #2b2a2a;
+    height: fit-content;
+    color: #999;
     font-size: 14px;
+    display: block;
+    padding: 10px 20px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #aaa;
+    border-collapse:collapse;
+}
+.menu a:hover{
+    background-color: rgba(230, 230, 230, 0.6);
 }
 
 
