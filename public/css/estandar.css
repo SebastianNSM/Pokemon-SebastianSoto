@@ -19,18 +19,6 @@ p,span,a,strong{
     line-height: 1.5em;
 }
 
-.container a, .container button{
-    line-height: 1.7em;
-    width: 400px;
-    background-color: #fe9126;
-    border: none;
-    font-size: 20px;
-    font-weight: 700;
-    padding: 10px 53px;
-    color: white;
-
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-}
 
 /* Estilos del header */
 /* Estilos del header */

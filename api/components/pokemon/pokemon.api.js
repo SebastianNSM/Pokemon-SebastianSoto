@@ -6,7 +6,7 @@ module.exports.registrar_pokemon = function(req,res){
     let nuevoPokemon = new pokemonModel({
         foto_pokemon: req.body.foto_pokemon,
         nombre_pokemon: req.body.nombre_pokemon,
-        numero_pokemon: req.body.numero_pokemon,
+        codigo_pokemon: req.body.codigo_pokemon,
         primer_tipo_pokemon: req.body.primer_tipo_pokemon,
         segundo_tipo_pokemon: req.body.segundo_tipo_pokemon
     });

@@ -1,3 +1,24 @@
+input, select{
+    -webkit-appearance: txtfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    padding: 1px;
+
+    margin-bottom: 20px;
+
+    outline: none;
+    border: 1px solid #DBDBDB;
+    padding: 2px 10px;
+    font-size: 14px;
+    color: #999;
+    display: block;
+}
+form.float input,form.float select{
+    width: 504.5px;
+    height: 32px;
+}
+
 .format{
     padding: 5em 0;
     background-image: url(../img/beach_side_bg.jpeg);
@@ -42,22 +63,12 @@
     position: relative;
     text-align: center;
 }
-.content-box input, .content-box select{
-    outline: none;
-    border: 1px solid #DBDBDB;
-    padding: 10px 10px 10px 10px;
-    font-size: 14px;
-    color: #999;
-    display: block;
-    width: 505px;
-}
+
 .content-box input::placeholder{
     color: #999;
 }
-.content-box button, .content-box select{
-    width: 527px;
-}
-.content-box button{
+
+form button{
     height: 38px;
     line-height: 18px;
     outline: none;
@@ -81,7 +92,7 @@
 form{
     position: relative;
 }
-#PokemonTypeList{
+#pokemonTypeList{
     width: 250px;
     height: 250px;
     border: 1px solid #999;
@@ -91,23 +102,10 @@ form button.addImg{
     width: 250px;
     margin: 24px auto;
 }
-input, select{
-    -webkit-appearance: txtfield;
-    background-color: white;
-    -webkit-rtl-ordering: logical;
-    cursor: text;
-    padding: 1px;
-    border-width: 2px;
-    border-style: inset;
-    border-color: initial;
-    border-image: initial;
-    margin-bottom: 20px;
-}
-
-form button:hover{
+form button:hover, div button:hover{
     background-color: #fe9126
 }
-form button{
+form button, div button{
     transition: .4s ease-in;
     -webkit-transition: .4s ease-in;
 }
