@@ -67,8 +67,16 @@
 #pokemonTypeList{
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
 }
+#pokemonTypeList div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    cursor: pointer;
+}
+#pokemonTypeList div:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+
 #pokemonTypeList img{
     width: 86px;
     height: 86px;

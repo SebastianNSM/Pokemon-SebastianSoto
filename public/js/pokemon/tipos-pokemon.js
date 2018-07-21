@@ -3,12 +3,13 @@
 
 // Los tipos que han sido registrados y van a la base de datos
 let tiposAgregados = [];
-function getTipos(){
-    return tiposAgregados;
-}
-function clearTipos(){
-    tiposAgregados = [];
-}
+
+// Esta funcion es para eliminar un tipo enc aso de ser seleccionado
+let primerTipo = document.querySelector('#tipo1');
+let segundoTipo = document.querySelector('#tipo2');
+
+// Este es el contenedor
+let listaAgregados = document.querySelector('#pokemonTypeList');
 
 // Arreglo con los tipos de pokemon
 let arregloTipos = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psycic', 'Rock', 'Steel', 'Water'];
@@ -21,6 +22,15 @@ let popup = document.querySelector('.popup-bg');
 let botonTipos = document.querySelector('#btnTipos');
 // El boton dentro del popup
 let botonAgregar = document.querySelector('#btnAgregar');
+
+function getTipos() {
+    return tiposAgregados;
+}
+function clearTipos() {
+    tiposAgregados = [];
+    listaAgregados.innerHTML = '';
+}
+
 
 botonAgregar.addEventListener('click', function () {
     if (tiposAgregados.length < 2) {
@@ -38,19 +48,10 @@ botonAgregar.addEventListener('click', function () {
     }
 });
 
+
 function agregarTipo() {
-    // Este es el contenedor
-    let listaAgregados = document.querySelector('#pokemonTypeList');
 
-    // Este es el input donde se elige el tipo a agregar
     let inputTipo = document.querySelector('#txtType');
-
-    // Esto transforma el valor del input y lo concatena para poder tirar la imagen png
-    let imgTipoFileName = inputTipo.value.toLowerCase();
-    let imgTipoPath = pathTipos + imgTipoFileName + ".png";
-
-    let newImg = document.createElement('img');
-    let newH4 = document.createElement('h4');
 
     if (inputTipo.value == "") {
         swal({
@@ -60,38 +61,58 @@ function agregarTipo() {
             confirmButtonText: 'Entendido'
         });
     } else {
-        let sTipo = inputTipo.value;
+        // Esto transforma el valor del input y lo concatena para poder tirar la imagen png
+        let imgTipoFileName = inputTipo.value.toLowerCase();
+        let imgTipoPath = pathTipos + imgTipoFileName + ".png";
+
+        let divTipo = document.createElement('div');
+        divTipo.id = "tipo" + Number(tiposAgregados.length+1);
+
+        let newImg = document.createElement('img');
         newImg.src = imgTipoPath;
-        listaAgregados.appendChild(newImg);
+
+        let newH4 = document.createElement('h4');
+        let sTipo = inputTipo.value;
         newH4.textContent = sTipo;
-        listaAgregados.appendChild(newH4);
+
+        
+        
+        divTipo.appendChild(newImg);
+        divTipo.appendChild(newH4);
+
         tiposAgregados.push(sTipo);
+
+        listaAgregados.appendChild(divTipo);
+
+        // Esta validacion es por si ya se agregaron los dos tipos
         if (tiposAgregados.length == 2) {
             popup.style.display = "none";
         }
+
+        // Limpia el formulario cada vez que se elige un tipo
         inputTipo.value = "";
     }
 };
 
-// Aparece el formulario
-botonTipos.addEventListener('click', function () {
-    if (tiposAgregados.length < 2) {
-        document.querySelector('.popup-bg').style.display = 'block';
-    } else {
-        swal({
-            title: '¡Ni lo intentes!',
-            text: 'Ya registraste el máximo de tipos posibles para un pokémon',
-            type: 'warning',
-            confirmButtonText: 'Entendido'
+listaAgregados.addEventListener('click', function(){
+    if(listaAgregados.innerHTML != null){
+        let eTipo1 = document.querySelector('#tipo1');
+        let eTipo2 = document.querySelector('#tipo2');
+        eTipo1.addEventListener('click', function(){
+            listaAgregados.removeChild(eTipo1);
+            tiposAgregados.splice(0,1);
         });
-        $('.swal2-confirm').click(function () {
-            popup.style.display = "none";
+        eTipo2.addEventListener('click', function(){
+            listaAgregados.removeChild(eTipo2);
+            tiposAgregados.splice(1,1);
         });
     }
-
 });
 
-// Si el usuario le da click fuera del formulario se sale.
+// Estas funciones son para el funcinamiento normal del formulario
+// Estas funciones son para el funcinamiento normal del formulario
+// Estas funciones son para el funcinamiento normal del formulario
+
 window.onclick = function (event) {
     if (event.target == popup) {
         popup.style.display = "none";
@@ -109,3 +130,24 @@ function createOptions() {
         listTipos.appendChild(opcion);
     }
 };
+
+botonTipos.addEventListener('click', function () {
+    if (tiposAgregados.length < 2) {
+        document.querySelector('.popup-bg').style.display = 'block';
+    } else {
+        swal({
+            title: '¡Ni lo intentes!',
+            text: 'Ya registraste el máximo de tipos posibles para un pokémon',
+            type: 'warning',
+            confirmButtonText: 'Entendido'
+        });
+        $('.swal2-confirm').click(function () {
+            popup.style.display = "none";
+        });
+    }
+
+});
+
+// Estas funciones son para el funcinamiento normal del formulario
+// Estas funciones son para el funcinamiento normal del formulario
+// Estas funciones son para el funcinamiento normal del formulario

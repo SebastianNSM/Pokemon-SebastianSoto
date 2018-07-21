@@ -14,18 +14,38 @@ function registrarPokemon (paInfoPokemon)
             nombre_pokemon: paInfoPokemon[1],
             codigo_pokemon: paInfoPokemon[2],
             primer_tipo_pokemon: paInfoPokemon[3],
-            segundo_tipo_pokemon: paInfoPokemon[4]
+            segundo_tipo_pokemon: paInfoPokemon[4],
         }
     });
 
     peticion.done(function (response)
     {
         respuesta = response;
+        if(respuesta.success){
+            swal({
+                title: 'Registro correcto',
+                text: 'El pokémon se registró correctamente',
+                type: 'success',
+                confirmButtonText: 'Entendido'
+            });
+            $('.swal2-confirm').click(function () {
+                window.location.href = "../html/index.html";
+            });
+            limpiarFormulario();
+        }else{
+            swal({
+                title: 'Registro incorrecto',
+                text: 'No se pudo registrar el pokémon: '+respuesta.msg,
+                type: 'error',
+                confirmButtonText: 'Entendido'
+            });
+        }
+        
     });
 
     peticion.fail(function (response)
     {
-
+        
     });
 
     return respuesta;

@@ -3,7 +3,7 @@
 let imgID = 'ditto';
 let imgForm = document.querySelector('#txtImagen')
 
-setImgSrc(imgID);
+imgHtml(imgID);
 
 $(function () {
     // Configure Cloudinary
@@ -27,7 +27,7 @@ $(function () {
                 imgID = id;
                 console.log(id);
                 console.log(getImgUrl(imgID));
-                setImgSrc(imgID);
+                imgHtml(imgID);
 
                 return getImgUrl(imgID);
             });
@@ -41,12 +41,12 @@ function getImgUrl(id) {
     return imgUrl;
 }
 // Mete el url y se lo mete a la imagen del html
-function setImgSrc(id) {
+function imgHtml(id) {
     imgForm.src = getImgUrl(id);
-}
-function setImgID(newID){
-    imgID = newID;
 }
 function getImgID(){
     return imgID
+}
+function resetImg(){
+   imgHtml('ditto');
 }

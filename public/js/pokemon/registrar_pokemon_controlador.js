@@ -6,12 +6,12 @@ let inputNombrePokemon = document.querySelector('#txtNombrePokemon');
 let inputCodigoPokedex = document.querySelector('#txtNumeroPokedex');
 
 
-let regexSoloLetras = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/;
+let regexPokemon = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]+$/;
 let regexCodigo = /^[a-zA-Z0-9]+$/;
 
 let idFoto = "";
 let sNombre = "";
-let sCodigo = "";
+let nCodigo = "";
 let sTipo1 = "";
 let sTipo2 = "";
 
@@ -22,7 +22,7 @@ function obtenerDatos() {
     // Permite acceder al imgID y no su url.
     idFoto = getImgID();
     sNombre = inputNombrePokemon.value;
-    sCodigo = inputCodigoPokedex.value;
+    nCodigo = inputCodigoPokedex.value;
     sTipo1 = listaTipos[0];
     sTipo2 = listaTipos[1];
     
@@ -33,23 +33,15 @@ function obtenerDatos() {
         swal({
             title: 'Registro incorrecto',
             text: 'No se pudo registrar el pokémon, verifique que completó correctamente la información que se le solicita',
-            type: 'error',
+            type: 'warning',
             confirmButtonText: 'Entendido'
         });
     } else {
-        infoPokemon.push(idFoto, sNombre, sCodigo, sTipo1, sTipo2);
+        
+        infoPokemon.push(idFoto, sNombre, nCodigo, sTipo1, sTipo2);
         registrarPokemon(infoPokemon);
-        swal({
-            title: 'Registro correcto',
-            text: 'El pokémon se registró correctamente',
-            type: 'success',
-            confirmButtonText: 'Entendido'
-        });
-        $('.swal2-confirm').click(function () {
-            window.location.href = "../html/index.html";
-        });
-        limpiarFormulario();
     }
+    
 };
 
 
@@ -58,17 +50,17 @@ function validar() {
 
     idFoto = getImgID();
     sNombre = inputNombrePokemon.value;
-    sCodigo = inputCodigoPokedex.value;
+    nCodigo = inputCodigoPokedex.value;
 
     // Validacion para el nombre
-    if (regexSoloLetras.test(sNombre) == false || sNombre.value == "") {
+    if (regexPokemon.test(sNombre) == false || sNombre.value == "") {
         bError = true;
         inputNombrePokemon.classList.add('errorInput');
     } else {
         inputNombrePokemon.classList.remove('errorInput');
     };
 
-    if (regexCodigo.test(sCodigo) == false || sCodigo.value == "") {
+    if (regexCodigo.test(nCodigo) == false || nCodigo.value == "") {
         bError = true;
         inputCodigoPokedex.classList.add('errorInput');
     } else {
@@ -90,7 +82,6 @@ function validar() {
 function limpiarFormulario() {
     inputNombrePokemon.value = "";
     inputCodigoPokedex.value = "";
-    idFoto = setImgID('ditto');
-    setImgSrc(idFoto)
+    resetImg();
     clearTipos();
 };
