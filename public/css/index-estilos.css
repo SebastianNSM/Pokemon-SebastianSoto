@@ -2,11 +2,11 @@
 /* Estilos del body */
 /* Estilos del body */
 .bg-img.phone{
-    background-image: url(../img/lp_bg.jpg);
+    background-image: url(../img/page/lp_bg.jpg);
     background-position: top;
 }
 .bg-img.pikachu{
-    background-image: url(../img/Pikachu-And-Raichu-Backgrounds.jpg);
+    background-image: url(../img/page/Pikachu-And-Raichu-Backgrounds.jpg);
     height: 200px;
     box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.8);
 }

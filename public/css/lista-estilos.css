@@ -1,0 +1,29 @@
+main{
+    padding: 3em 0;
+    background-image: url(../img/page/pokedex-wallpaper.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main table{
+    margin: 0px auto;
+    width: 675px;
+}
+main table thead {
+    background-color: rgba(238,21,21, 0.7);
+}
+main table thead th{
+    color: white;
+}
+main table tbody{
+    background-color: #fff;
+    display: table-row-group;
+}
+th, td{
+    padding: 10px;
+}
+tbody td{
+    text-align: center;
+    color: #212121;
+}

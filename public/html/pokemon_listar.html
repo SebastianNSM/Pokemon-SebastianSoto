@@ -3,14 +3,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Pokémon registrar</title>
+    <title>Pokémon listar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
     <link rel="stylesheet" href="../css/estandar.css">
-    <link rel="stylesheet" href="../css/formulario-tipo.css">
-    <link rel="stylesheet" href="../css/registro-estilos.css">
+    <link rel="stylesheet" href="../css/lista-estilos.css">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
@@ -47,48 +46,30 @@
 
         </nav>
     </header>
+
     <main>
-
-        <div class="format">
-            <div class="form-container">
-                <h2>Registro de pokémones</h2>
-                <div class="content-box">
-
-                    <div class="popup-bg">
-                        <!-- Formulario que aparece -->
-                        <form class="popup-content animate">
-                            <div class="popup-form">
-                                <h1>¡Agrega un tipo!</h1>
-                                <input type="text" list="dtlTypeList" id="txtType">
-                                <datalist id="dtlTypeList">
-                                </datalist>
-                                <button type="button" id="btnAgregar">Agregar</button>
-                            </div>
-                        </form>
-                        <!-- Formulario que aparece -->
-                    </div>
-
-                    <form class="float">
-                        <div class="float-left">
-                            <img src="" id="txtImagen">
-                            <button type="button" id="btnSeleccionarImagen" class="addImg">Subir foto</button>
-                        </div>
-                        <div class="float-right">
-                            <!-- En esto solo caben 2 elementos -->
-                            <div id="pokemonTypeList">
-                                <!-- Primero va la img y luego el h4 -->
-                            </div>
-                            <button type="button" id="btnTipos" class="addImg">Agregar tipo</button>
-                        </div>
-                        <input id="txtNombrePokemon" type="text" placeholder="Nombre del pokémon" required>
-                        <input id="txtNumeroPokedex" type="number" placeholder="Código de la pokedex" required>
-
-                        <button type="button" id="btnRegistrar">Registrar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Nombre</th>
+                    <th>Código</th>
+                    <th>Tipo 1</th>
+                    <th>Tipo 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>a</td>
+                    <td>b</td>
+                    <td>c</td>
+                    <td>d</td>
+                    <td>e</td>
+                </tr>
+            </tbody>
+        </table>
     </main>
+
     <footer>
         <div class="footer-container">
             <div>
@@ -131,23 +112,18 @@
                 </ul>
             </div>
         </div>
+
     </footer>
     <!-- Jquey y Sweet alert -->
     <script src="../js/jquery v3.3.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
 
-    <!-- Cloudinary -->
-    <script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
-    <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-
-    <!-- Servicio Imagen -->
+    <!-- Servicios -->
     <script src="../js/pokemon/imagen_pokemon_servicio.js"></script>
-
-    <!-- Servicio y controlador pokemon y controlador de tipos -->
     <script src="../js/pokemon/servicio_pokemon.js"></script>
-    <script src="../js/pokemon/tipos-pokemon.js"></script>
-    <script src="../js/pokemon/registrar_pokemon_controlador.js"></script>
-    
+
+    <!-- Controlador pokemon -->
+    <script src="../js/pokemon/listar_pokemon_controlador.js"></script>
 
 
     <!-- Scripts Extra -->
