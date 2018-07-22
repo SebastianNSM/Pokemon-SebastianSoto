@@ -29,7 +29,7 @@ function registrarPokemon (paInfoPokemon)
                 confirmButtonText: 'Entendido'
             });
             $('.swal2-confirm').click(function () {
-                window.location.href = "../html/index.html";
+                window.location.href = "../html/pokemon_listar.html";
             });
             limpiarFormulario();
         }else{

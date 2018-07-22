@@ -43,31 +43,38 @@
                     <a href="#">Captura pokémones</a>
                 </div>
             </div>
-
         </nav>
     </header>
 
     <main>
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Nombre</th>
-                    <th>Código</th>
-                    <th>Tipo 1</th>
-                    <th>Tipo 2</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>a</td>
-                    <td>b</td>
-                    <td>c</td>
-                    <td>d</td>
-                    <td>e</td>
-                </tr>
-            </tbody>
-        </table>
+        <section id="sct_lista">
+            <div id="div_search" class="grid-busqueda y-align">
+                <div class="x-align">
+                    <label for="txtFiltro">Buscar por nombre: </label>
+                    <input type="text" id="txtFiltroNombre">
+
+                    <label for="txtType">Buscar por tipo: </label>
+                    <input type="text" list="dtlTypeList" id="txtFiltroTipo">
+                    <datalist id="dtlTypeList">
+
+                    </datalist>
+
+                </div>
+            </div>
+            <table id="tblPokemon" class="grid-tabla" >
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Nombre</th>
+                        <th>Código</th>
+                        <th>Tipo 1</th>
+                        <th>Tipo 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
     </main>
 
     <footer>
@@ -119,7 +126,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
 
     <!-- Servicios -->
-    <script src="../js/pokemon/imagen_pokemon_servicio.js"></script>
     <script src="../js/pokemon/servicio_pokemon.js"></script>
 
     <!-- Controlador pokemon -->

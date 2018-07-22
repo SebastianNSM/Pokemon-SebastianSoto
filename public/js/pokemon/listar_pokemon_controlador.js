@@ -1,63 +1,87 @@
 'use strict';
+createOptions();
+mostrarPokemones();
 
-function mostrarListaCarreras(paBuscar) {
-    let listaPokemon = obtenerListaPokemon();
+
+
+function createOptions() {
+    let arregloTipos = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psycic', 'Rock', 'Steel', 'Water'];
+    let listTipos = document.querySelector('#dtlTypeList');
+
+    for (let i = 0; i < arregloTipos.length; i++) {
+        let opcion = new Option(arregloTipos[i]);
+        opcion.value = arregloTipos[i];
+        listTipos.appendChild(opcion);
+    }
+};
+function getImgUrl(id) {
+    let url = "http://res.cloudinary.com/sebastiansm/image/upload/";
+    let imgUrl = url + id;
+
+    return imgUrl;
+};
+
+let inputFiltroNombre = document.querySelector('#txtFiltroNombre');
+
+inputFiltroNombre.addEventListener('keyup', function () {
+    imprimirListaPersonas(inputFiltroNombre.value)
+});
+
+function mostrarPokemones(pFiltro) {
 
     let tbody = document.querySelector('#tblPokemon tbody');
-    tbody.innerHTML = '';
-    if (paBuscar != undefined) {
-        for (let i = 0; i < listaPokemon.length; i++) {
-            if (listaPokemon[i]['nombre_carrera'].toLowerCase().includes(paBuscar.toLowerCase())) {
-                let fila = tbody.insertRow();
-
-                let celdaNombre = fila.insertCell();
-                let celdaGrado = fila.insertCell();
-                let celdaCodigo = fila.insertCell();
-                let celdaCreditos = fila.insertCell();
-                let celdaFechaCreacion = fila.insertCell();
-                let celdaSede = fila.insertCell();
-                let celdaPeriodo = fila.insertCell();
-                let celdaEstado = fila.insertCell();
-                let celdaOpciones = fila.insertCell();
-
-                celdaNombre.innerHTML = listaPokemon[i]['nombre_carrera'];
-                celdaGrado.innerHTML = listaPokemon[i]['grado_carrera'];
-                celdaCodigo.innerHTML = listaPokemon[i]['codigo_carrera'];
-                celdaCreditos.innerHTML = listaPokemon[i]['creditos_carrera'];
-                // Fecha de creacion
-
-                // Esto separa la informacion de la fecha
-                let dFecha = new Date(listaPokemon[i]['fecha_carrera']);
-                let nDia = dFecha.getUTCDate();
-                let nMes = dFecha.getUTCMonth() + 1;
-                let nAnno = dFecha.getUTCFullYear();
-                // Esto despliega la informacion separada para darle formato
-                celdaFechaCreacion.innerHTML = nDia + '/' + nMes + '/' + nAnno;;
-
-                // Fecha de creacion
-                celdaSede.innerHTML = listaPokemon[i]['sede_carrera'];
-                celdaPeriodo.innerHTML = listaPokemon[i]['periodo_carrera'];
-                celdaEstado.innerHTML = listaPokemon[i]['estado_carrera'];
-
-
-                // Este es el boton de editar
-                let botonEditar = document.createElement('a');
-                botonEditar.href = '#'//En este espacio va el path del html de editar carrera
-                botonEditar.classList.add('fas');
-                botonEditar.classList.add('fa-cogs');
-
-                celdaOpciones.appendChild(botonEditar);
-
-                // Este es el boton de eliminar
-                let botonEliminar = document.createElement('a');
-                botonEliminar.href = '#'//Este espacio va el evento de eliminar carrera
-                botonEliminar.classList.add('fas');
-                botonEliminar.classList.add('fa-trash-alt');
-
-                celdaOpciones.appendChild(botonEliminar);
-
-                // Icono de editar: <i class="fas fa-cogs"></i>
-                // Icono de eliminar: <i class="fas fa-trash-alt"></i>
-            }
-        }
+    if (!pFiltro) {
+        pFiltro = '';
     }
+    tbody.innerHTML = '';
+    let listaPokemon = obtenerListaPokemon();
+    
+
+    for (let i = 0; i < listaPokemon.length; i++) {
+        if (listaPokemon[i]['nombre_pokemon'].toLowerCase().includes(pFiltro.toLowerCase())) {
+            let fila = tbody.insertRow();
+
+            let cFoto = fila.insertCell();
+            let cNombre = fila.insertCell();
+            let cCodigo = fila.insertCell();
+            let cTipo1 = fila.insertCell();
+            let cTipo2 = fila.insertCell();
+
+            let imagen = document.createElement('img');
+            imagen.src = getImgUrl(listaPokemon[i]['foto_pokemon']);
+            imagen.classList.add('imageSettings');
+            cFoto.appendChild(imagen);
+            cNombre.innerHTML = listaPokemon[i]['nombre_pokemon'];
+            cCodigo.innerHTML = listaPokemon[i]['codigo_pokemon'];
+
+            createToolTip(listaPokemon[i]['primer_tipo_pokemon'], cTipo1);
+            createToolTip(listaPokemon[i]['segundo_tipo_pokemon'], cTipo2);
+
+        }
+
+    }
+
+};
+
+function createToolTip(primerTipo, primerCelda){
+    let pathTypes = "../img/Types/";
+    let pTipo = primerTipo;
+
+    if (pTipo == null) {
+        primerCelda.innerHTML = "-";
+    } else {
+        let span = document.createElement('span');
+        span.textContent = pTipo;
+        span.classList.add('tooltiptext');
+
+        let element = document.createElement('img');
+        element.src = pathTypes + pTipo.toLowerCase() + ".png";
+
+        let pDiv = document.createElement('div');
+        pDiv.classList.add('tooltip');
+        pDiv.appendChild(span);
+        pDiv.appendChild(element);
+
+        primerCelda.appendChild(pDiv);
+    }
+}
