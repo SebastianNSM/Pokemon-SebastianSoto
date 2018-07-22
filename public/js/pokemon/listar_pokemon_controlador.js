@@ -37,14 +37,25 @@ function mostrarPokemonesTipoSecundario(pFiltroTipo2) {
         imagen.src = getImgUrl(listaTipo2[i]['foto_pokemon']);
         imagen.classList.add('imageSettings');
         cFoto.appendChild(imagen);
-        cNombre.innerHTML = listaTipo2[i]['nombre_pokemon'];
-        cCodigo.innerHTML = listaTipo2[i]['codigo_pokemon'];
+
+
+        // Crea spans para que asi se pueda centrar el texto
+        let nombreSpan = crearSpan(listaTipo2[i]['nombre_pokemon']);
+        let codigoSpan = crearSpan(listaTipo2[i]['codigo_pokemon']);
+        cNombre.appendChild(nombreSpan);
+        cCodigo.appendChild(codigoSpan);
 
         createToolTip(listaTipo2[i]['primer_tipo_pokemon'], cTipo1);
         createToolTip(listaTipo2[i]['segundo_tipo_pokemon'], cTipo2);
 
     };
 };
+
+function crearSpan(pInfo) {
+    let nuevoSpan = document.createElement('span');
+    nuevoSpan.textContent = pInfo;
+    return nuevoSpan;
+}
 
 function checkType2(pFiltroTipo2) {
     let listaTipo2 = [];
@@ -83,8 +94,10 @@ function imprimirInfo(i) {
     imagen.src = getImgUrl(listaPokemon[i]['foto_pokemon']);
     imagen.classList.add('imageSettings');
     cFoto.appendChild(imagen);
-    cNombre.innerHTML = listaPokemon[i]['nombre_pokemon'];
-    cCodigo.innerHTML = listaPokemon[i]['codigo_pokemon'];
+    let nombreSpan = crearSpan(listaPokemon[i]['nombre_pokemon']);
+    let codigoSpan = crearSpan(listaPokemon[i]['codigo_pokemon']);
+    cNombre.appendChild(nombreSpan);
+    cCodigo.appendChild(codigoSpan);
 
     createToolTip(listaPokemon[i]['primer_tipo_pokemon'], cTipo1);
     createToolTip(listaPokemon[i]['segundo_tipo_pokemon'], cTipo2);
@@ -96,7 +109,8 @@ function createToolTip(primerTipo, primerCelda) {
     let pTipo = primerTipo;
 
     if (pTipo == null) {
-        primerCelda.innerHTML = "-";
+        let tipoSpan = crearSpan("-");
+        primerCelda.appendChild(tipoSpan);
     } else {
         let span = document.createElement('span');
         span.textContent = pTipo;

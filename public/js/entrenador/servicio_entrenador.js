@@ -1,14 +1,6 @@
-/*
-Responsabilidades del servicio
-    - Procesamiento de datos (cálculos)
-    - Almacenamiento temporal de los datos
-    - Comunicar el public (front-end) con el api (back-end)
-*/
-
 'use strict';
 
-
-function registrarEntrenadora(paInfoEntrenador) {
+function registrarEntrenador(paInfoEntrenador) {
     let respuesta = '';
     let peticion = $.ajax({
         url: 'http://localhost:4000/api/registrar_entrenador',
@@ -27,6 +19,25 @@ function registrarEntrenadora(paInfoEntrenador) {
 
     peticion.done(function (response) {
         respuesta = response;
+        if(respuesta.success){
+            swal({
+                title: 'Registro correcto',
+                text: 'El entrenador se registró correctamente',
+                type: 'success',
+                confirmButtonText: 'Entendido'
+            });
+            $('.swal2-confirm').click(function () {
+                window.location.href = "../html/entrenador_listar.html";
+            });
+            limpiarFormulario();
+        }else{
+            swal({
+                title: 'Registro incorrecto',
+                text: 'No se pudo registrar el entrenador: '+respuesta.msg,
+                type: 'error',
+                confirmButtonText: 'Entendido'
+            });
+        }
     });
 
     peticion.fail(function (response) {

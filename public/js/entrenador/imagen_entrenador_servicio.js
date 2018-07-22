@@ -1,9 +1,9 @@
 'use strict';
 
-let imgID = 'ditto';
+let imgID = 'profile';
 let imgForm = document.querySelector('#txtImagen')
 
-setImgID(imgID);
+imgHtml(imgID);
 
 $(function () {
     // Configure Cloudinary
@@ -17,7 +17,7 @@ $(function () {
     // Upload button event
     uploadButton.on('click', function (e) {
         // Initiate upload
-        cloudinary.openUploadWidget({ cloud_name: 'sebastiansm', upload_preset: 'entrenadorCloudSSM' },
+        cloudinary.openUploadWidget({ cloud_name: 'sebastiansm', upload_preset: 'pokemonCloudSSM' },
             function (error, result) {
                 if (error) console.log(error);
                 // If NO error, log image data to console
@@ -25,11 +25,9 @@ $(function () {
 
                 // Esto guarda el id en una variable global
                 imgID = id;
-
                 console.log(id);
                 console.log(getImgUrl(imgID));
-
-                setImgID(imgID);
+                imgHtml(imgID);
 
                 return getImgUrl(imgID);
             });
@@ -43,9 +41,12 @@ function getImgUrl(id) {
     return imgUrl;
 }
 // Mete el url y se lo mete a la imagen del html
-function setImgID(id) {
+function imgHtml(id) {
     imgForm.src = getImgUrl(id);
 }
 function getImgID(){
     return imgID
+}
+function resetImg(){
+   imgHtml('profile');
 }

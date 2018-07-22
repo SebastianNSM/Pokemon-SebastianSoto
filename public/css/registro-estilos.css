@@ -14,9 +14,13 @@ input, select{
     color: #999;
     display: block;
 }
-form.float input,form.float select{
+form.float input{
     width: 504.5px;
     height: 32px;
+}
+form.float select{
+    height: 38px;
+    width: 100%;
 }
 
 .format{

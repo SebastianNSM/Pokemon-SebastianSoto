@@ -177,6 +177,26 @@ footer i{
     float: right;
 }
 
-form input.errorInput, form select .errorInput{
+form input.errorInput, form select.errorInput{
     border: 2px solid #ff4455;
+}
+
+#div_search>div>label{
+    color: #fe9126;
+    font-weight: bold;
+}
+
+span.far.fa-dot-circle{
+    font-size: 40px;
+    color: #fe9126;
+    top: 70px;
+    font-weight: 100;
+    cursor: pointer;
+}
+span.far.fa-dot-circle:hover{
+    transition: color 1000ms;
+    color: #ff4455;
+
+    transition: 100ms ease-in;
+    font-weight: bold;
 }

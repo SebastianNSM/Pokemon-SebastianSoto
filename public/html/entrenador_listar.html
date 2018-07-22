@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
     <link rel="stylesheet" href="../css/estandar.css">
-    <link rel="stylesheet" href="../css/lista-estilos.css">
+    <link rel="stylesheet" href="../css/lista-entrenador-estilos.css">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
@@ -52,31 +52,54 @@
                 <div class="x-align">
                     <label for="txtFiltro">Buscar por nombre: </label>
                     <input type="text" id="txtFiltroNombre">
-
-                    <label for="txtType">Buscar por tipo primario: </label>
-                    <input type="text" list="dtlTypeList" id="txtFiltroTipo">
-                    <datalist id="dtlTypeList">
-
-                    </datalist>
-
-                    <label for="txtType">Buscar por tipo secundario: </label>
-                    <input type="text" list="dtlTypeList" id="txtFiltroTipoSecundario">
-                    <datalist id="dtlTypeList">
-
-                    </datalist>
                 </div>
             </div>
-            <table id="tblPokemon" class="grid-tabla" >
+            <table id="tblEntrenador" class="grid-tabla">
                 <thead>
                     <tr>
                         <th></th>
                         <th>Nombre</th>
-                        <th>Código</th>
-                        <th>Tipo 1</th>
-                        <th>Tipo 2</th>
+                        <th>Numero</th>
+                        <th>Edad</th>
+                        <th>Sexo</th>
+                        <th>Captura</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>
+                            <div class="entrenador"></div>
+                        </td>
+                        <td>
+                            <span>Text</span>
+                        </td>
+                        <td>
+                            <span>Text</span>
+                        </td>
+                        <td>
+                            <span>Text</span>
+                        </td>
+                        <td>
+                            <span>Text</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="entrenador"></div>
+                        </td>
+                        <td>
+                            <span>Text</span>
+                        </td>
+                        <td>
+                            <span>Text</span>
+                        </td>
+                        <td>
+                            <span>Text</span>
+                        </td>
+                        <td>
+                            <span>Text</span>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </section>
@@ -131,10 +154,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
 
     <!-- Servicios -->
-    <script src="../js/pokemon/servicio_pokemon.js"></script>
+    <script src="../js/entrenador/imagen_entrenador_servicio.js"></script>
+    <script src="../js/entrenador/servicio_entrenador.js"></script>
 
     <!-- Controlador pokemon -->
-    <script src="../js/pokemon/listar_pokemon_controlador.js"></script>
+    <script src="../js/entrenador/listar_entrenador_controlador.js"></script>
 
 
     <!-- Scripts Extra -->

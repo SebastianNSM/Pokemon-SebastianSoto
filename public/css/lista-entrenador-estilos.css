@@ -1,6 +1,6 @@
 main{
     padding: 3em 0;
-    background-image: url(../img/page/9BzhU2v.jpg);
+    background-image: url(../img/page/magik.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,8 +27,7 @@ main table{
     margin: 0px auto;
     width: 750px;
     border-collapse: collapse;
-    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3);
-    line-height: 0px;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3)
 }
 main table thead tr{
     background-color: #fe9126;
@@ -43,21 +42,20 @@ main table tbody{
 }
 
 tbody td{
-    text-align: center;
     color: #212121;
     border-bottom: 1px solid #999;
-    height: 80px;
-    width: 100px;
     position: relative;
 }
 tbody td img{
+    display: block;
+    margin: 0px auto;
+    margin-top: 15px;
     width: 50px;
     height: 50px;
-    margin: 20px 0px;
 }
 #div_search div{
     padding: 20px;
-    height: 400px;
+    height: 100px;
     width: 250px;
     background-color:#fff;
     border: #999 solid 1px;
@@ -100,24 +98,37 @@ tbody td img{
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 20%;
-    margin-left: 40px;
+    top: 100%;
+    left: 50%;
+    margin-left: -25px;
 }
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
 
-table tbody td>img{
+/* Estilos especificos de imagen para tabla */
+
+table tbody td>div{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-image: url(../img/Entrenador/nc3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     position: absolute;
     left: 25px;
+    top: 15px;
+}
+table tbody tr td:first-child{
+    width: 200px;
+    height: 180px;
 }
 
 td>span{
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 33px;
+    text-align: center;
+    width: 100%;
+    top: 76px;
 }

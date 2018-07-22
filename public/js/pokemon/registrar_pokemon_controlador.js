@@ -1,4 +1,5 @@
 'use strict';
+
 let botonRegistrar = document.querySelector('#btnRegistrar');
 botonRegistrar.addEventListener('click', obtenerDatos);
 
@@ -7,7 +8,7 @@ let inputCodigoPokedex = document.querySelector('#txtNumeroPokedex');
 
 
 let regexPokemon = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]+$/;
-let regexCodigo = /^[a-zA-Z0-9]+$/;
+let regexCodigo = /^[0-9]+$/;
 
 let idFoto = "";
 let sNombre = "";
@@ -22,7 +23,7 @@ function obtenerDatos() {
     // Permite acceder al imgID y no su url.
     idFoto = getImgID();
     sNombre = inputNombrePokemon.value;
-    nCodigo = inputCodigoPokedex.value;
+    nCodigo = Number(inputCodigoPokedex.value);
     sTipo1 = listaTipos[0];
     sTipo2 = listaTipos[1];
     
