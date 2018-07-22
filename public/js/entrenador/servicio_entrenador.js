@@ -33,7 +33,7 @@ function registrarEntrenador(paInfoEntrenador) {
         }else{
             swal({
                 title: 'Registro incorrecto',
-                text: 'No se pudo registrar el entrenador: '+respuesta.msg,
+                text: 'No se pudo registrar al entrenador: '+respuesta.msg,
                 type: 'error',
                 confirmButtonText: 'Entendido'
             });

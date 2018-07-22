@@ -3,6 +3,9 @@ let listaEntrenador = obtenerListaEntrenadores();
 mostrarEntrenadores();
 
 let inputFiltro = document.querySelector('#txtFiltroNombre');
+inputFiltro.addEventListener('keyup', function(){
+    mostrarEntrenadores(inputFiltro.value);
+});
 
 function mostrarEntrenadores(pFiltro) {
     tbody.innerHTML = '';
