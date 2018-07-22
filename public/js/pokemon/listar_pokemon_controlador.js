@@ -1,69 +1,97 @@
 'use strict';
+let tbody = document.querySelector('#tblPokemon tbody');
+let listaPokemon = obtenerListaPokemon();
 createOptions();
 mostrarPokemones();
 
 
-
-function createOptions() {
-    let arregloTipos = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psycic', 'Rock', 'Steel', 'Water'];
-    let listTipos = document.querySelector('#dtlTypeList');
-
-    for (let i = 0; i < arregloTipos.length; i++) {
-        let opcion = new Option(arregloTipos[i]);
-        opcion.value = arregloTipos[i];
-        listTipos.appendChild(opcion);
-    }
-};
-function getImgUrl(id) {
-    let url = "http://res.cloudinary.com/sebastiansm/image/upload/";
-    let imgUrl = url + id;
-
-    return imgUrl;
-};
-
 let inputFiltroNombre = document.querySelector('#txtFiltroNombre');
+let inputFiltroTipo = document.querySelector('#txtFiltroTipo');
+let inputFiltroTipoSecundario = document.querySelector('#txtFiltroTipoSecundario');
+// Funcion que imprime segun el tipo primario
+function mostrarPokemonesTipo(pFiltroTipo) {
+    tbody.innerHTML = '';
+    for (let i = 0; i < listaPokemon.length; i++) {
+        if (listaPokemon[i]['primer_tipo_pokemon'].toLowerCase().includes(pFiltroTipo.toLowerCase())) {
+            imprimirInfo(i);
+        }
+    };
+};
 
-inputFiltroNombre.addEventListener('keyup', function () {
-    imprimirListaPersonas(inputFiltroNombre.value)
-});
+// Funcion que imprime segun el tipo secundario
+function mostrarPokemonesTipoSecundario(pFiltroTipo2) {
+    tbody.innerHTML = '';
+    let listaTipo2 = checkType2(pFiltroTipo2);
 
-function mostrarPokemones(pFiltro) {
+    for (let i = 0; i < listaTipo2.length; i++) {
 
-    let tbody = document.querySelector('#tblPokemon tbody');
-    if (!pFiltro) {
-        pFiltro = '';
+        let fila = tbody.insertRow();
+
+        let cFoto = fila.insertCell();
+        let cNombre = fila.insertCell();
+        let cCodigo = fila.insertCell();
+        let cTipo1 = fila.insertCell();
+        let cTipo2 = fila.insertCell();
+
+        let imagen = document.createElement('img');
+        imagen.src = getImgUrl(listaTipo2[i]['foto_pokemon']);
+        imagen.classList.add('imageSettings');
+        cFoto.appendChild(imagen);
+        cNombre.innerHTML = listaTipo2[i]['nombre_pokemon'];
+        cCodigo.innerHTML = listaTipo2[i]['codigo_pokemon'];
+
+        createToolTip(listaTipo2[i]['primer_tipo_pokemon'], cTipo1);
+        createToolTip(listaTipo2[i]['segundo_tipo_pokemon'], cTipo2);
+
+    };
+};
+
+function checkType2(pFiltroTipo2) {
+    let listaTipo2 = [];
+    for (let i = 0; i < listaPokemon.length; i++) {
+        if ((listaPokemon[i]['segundo_tipo_pokemon'] != undefined) && (listaPokemon[i]['segundo_tipo_pokemon'].toLowerCase().includes(pFiltroTipo2.toLowerCase()))) {
+            listaTipo2.push(listaPokemon[i]);
+        }
+    }
+    return listaTipo2;
+}
+
+// funcion que imprime segun el nombre y por defecto al inicio
+function mostrarPokemones(pFiltroNombre) {
+    if (!pFiltroNombre) {
+        pFiltroNombre = '';
     }
     tbody.innerHTML = '';
-    let listaPokemon = obtenerListaPokemon();
-    
-
     for (let i = 0; i < listaPokemon.length; i++) {
-        if (listaPokemon[i]['nombre_pokemon'].toLowerCase().includes(pFiltro.toLowerCase())) {
-            let fila = tbody.insertRow();
-
-            let cFoto = fila.insertCell();
-            let cNombre = fila.insertCell();
-            let cCodigo = fila.insertCell();
-            let cTipo1 = fila.insertCell();
-            let cTipo2 = fila.insertCell();
-
-            let imagen = document.createElement('img');
-            imagen.src = getImgUrl(listaPokemon[i]['foto_pokemon']);
-            imagen.classList.add('imageSettings');
-            cFoto.appendChild(imagen);
-            cNombre.innerHTML = listaPokemon[i]['nombre_pokemon'];
-            cCodigo.innerHTML = listaPokemon[i]['codigo_pokemon'];
-
-            createToolTip(listaPokemon[i]['primer_tipo_pokemon'], cTipo1);
-            createToolTip(listaPokemon[i]['segundo_tipo_pokemon'], cTipo2);
-
+        if (listaPokemon[i]['nombre_pokemon'].toLowerCase().includes(pFiltroNombre.toLowerCase())) {
+            imprimirInfo(i);
         }
-
     }
-
 };
 
-function createToolTip(primerTipo, primerCelda){
+// Esta funcion imrpime la informacion de la tabla
+function imprimirInfo(i) {
+    let fila = tbody.insertRow();
+
+    let cFoto = fila.insertCell();
+    let cNombre = fila.insertCell();
+    let cCodigo = fila.insertCell();
+    let cTipo1 = fila.insertCell();
+    let cTipo2 = fila.insertCell();
+
+    let imagen = document.createElement('img');
+    imagen.src = getImgUrl(listaPokemon[i]['foto_pokemon']);
+    imagen.classList.add('imageSettings');
+    cFoto.appendChild(imagen);
+    cNombre.innerHTML = listaPokemon[i]['nombre_pokemon'];
+    cCodigo.innerHTML = listaPokemon[i]['codigo_pokemon'];
+
+    createToolTip(listaPokemon[i]['primer_tipo_pokemon'], cTipo1);
+    createToolTip(listaPokemon[i]['segundo_tipo_pokemon'], cTipo2);
+};
+
+// Funcion que indica el tipo de forma escrita con un hover
+function createToolTip(primerTipo, primerCelda) {
     let pathTypes = "../img/Types/";
     let pTipo = primerTipo;
 
@@ -84,4 +112,35 @@ function createToolTip(primerTipo, primerCelda){
 
         primerCelda.appendChild(pDiv);
     }
-}
+};
+
+// Funcionq ue crea las opciones del filtro de tipos
+function createOptions() {
+    let arregloTipos = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psycic', 'Rock', 'Steel', 'Water'];
+    let listTipos = document.querySelector('#dtlTypeList');
+
+    for (let i = 0; i < arregloTipos.length; i++) {
+        let opcion = new Option(arregloTipos[i]);
+        opcion.value = arregloTipos[i];
+        listTipos.appendChild(opcion);
+    }
+};
+
+// Funcion que captura la foto de cloudinary (el src)
+function getImgUrl(id) {
+    let url = "http://res.cloudinary.com/sebastiansm/image/upload/";
+    let imgUrl = url + id;
+
+    return imgUrl;
+};
+
+
+inputFiltroNombre.addEventListener('keyup', function () {
+    mostrarPokemones(inputFiltroNombre.value);
+});
+inputFiltroTipo.addEventListener('keyup', function () {
+    mostrarPokemonesTipo(inputFiltroTipo.value);
+});
+inputFiltroTipoSecundario.addEventListener('keyup', function () {
+    mostrarPokemonesTipoSecundario(inputFiltroTipoSecundario.value);
+});
