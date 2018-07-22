@@ -35,7 +35,7 @@ main table thead tr{
 }
 main table thead th{
     color: white;
-    padding: 10px;
+    padding: 20px;
 }
 main table tbody{
     background-color: #fff;
@@ -55,6 +55,9 @@ tbody td img{
     height: 50px;
     margin: 20px 0px;
 }
+#div_search{
+    position: relative;
+}
 #div_search div{
     padding: 20px;
     height: 400px;
@@ -64,6 +67,9 @@ tbody td img{
     box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.3);
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 #div_search div label{

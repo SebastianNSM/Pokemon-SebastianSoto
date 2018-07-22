@@ -148,13 +148,19 @@ function getImgUrl(id) {
     return imgUrl;
 };
 
+function resetSearchHeight(){
+    $("html, body").animate({ scrollTop: "168px" });
+}
 
 inputFiltroNombre.addEventListener('keyup', function () {
     mostrarPokemones(inputFiltroNombre.value);
+    resetSearchHeight();
 });
 inputFiltroTipo.addEventListener('keyup', function () {
     mostrarPokemonesTipo(inputFiltroTipo.value);
+    resetSearchHeight();
 });
 inputFiltroTipoSecundario.addEventListener('keyup', function () {
     mostrarPokemonesTipoSecundario(inputFiltroTipoSecundario.value);
+    resetSearchHeight();
 });

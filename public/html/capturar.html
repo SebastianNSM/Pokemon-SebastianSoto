@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Entrenador listar</title>
+    <title>Captura pokémon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
     <link rel="stylesheet" href="../css/estandar.css">
-    <link rel="stylesheet" href="../css/lista-entrenador-estilos.css">
+    <link rel="stylesheet" href="../css/capturar.css">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
@@ -42,34 +42,36 @@
                     <a href="../html/entrenador_listar.html">Listar entrenadores</a>
                 </div>
             </div>
+
         </nav>
     </header>
-
     <main>
-        <section id="sct_lista">
-            <div id="div_search" class="grid-busqueda">
-                <div>
-                    <label for="txtFiltro">Buscar por nombre: </label>
-                    <input type="text" id="txtFiltroNombre">
+        <div id="displayCapturar">
+            <div class="capturar">
+                <div class="title y-align">
+                    <h2 class="x-align">¡Captura un pokémon!</h2>
+                </div>
+                <div class="side">
+                    <div id="perfil" class="y-align card">
+                        <div class="x-align">
+                            <div id="entrenadorFoto"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pokemon">
+                    <div class="card">
+                        <div class="x-align" id="capture">
+                            <input type="text" list="dtlPokemonList" id="txtPokemon" placeholder="Pokémones para capturar">
+                            <datalist id="dtlPokemonList">
+                            </datalist>
+                            <img src="../img/pokegif.gif" id="imgPokemonElegido">
+                            <button type="button" id="btnCapturar">Capturar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <table id="tblEntrenador" class="grid-tabla">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Nombre</th>
-                        <th>Numero</th>
-                        <th>Edad</th>
-                        <th>Sexo</th>
-                        <th>Captura</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </section>
+        </div>
     </main>
-
     <footer>
         <div class="footer-container">
             <div>
@@ -112,18 +114,21 @@
                 </ul>
             </div>
         </div>
-
     </footer>
+
     <!-- Jquey y Sweet alert -->
     <script src="../js/jquery v3.3.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
 
-    <!-- Servicios -->
+    <!-- Servicio Imagen -->
     <script src="../js/entrenador/imagen_entrenador_servicio.js"></script>
-    <script src="../js/entrenador/servicio_entrenador.js"></script>
 
-    <!-- Controlador pokemon -->
-    <script src="../js/entrenador/listar_entrenador_controlador.js"></script>
+    <!-- Servicio y controlador pokemon y controlador de tipos -->
+    <script src="../js/entrenador/servicio_entrenador.js"></script>
+    <script src="../js/pokemon/servicio_pokemon.js"></script>
+
+    <script src="../js/entrenador/capturar.js"></script>
+
 
 
     <!-- Scripts Extra -->

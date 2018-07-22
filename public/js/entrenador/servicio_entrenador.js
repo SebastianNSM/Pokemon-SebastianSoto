@@ -19,7 +19,7 @@ function registrarEntrenador(paInfoEntrenador) {
 
     peticion.done(function (response) {
         respuesta = response;
-        if(respuesta.success){
+        if (respuesta.success) {
             swal({
                 title: 'Registro correcto',
                 text: 'El entrenador se registró correctamente',
@@ -30,10 +30,10 @@ function registrarEntrenador(paInfoEntrenador) {
                 window.location.href = "../html/entrenador_listar.html";
             });
             limpiarFormulario();
-        }else{
+        } else {
             swal({
                 title: 'Registro incorrecto',
-                text: 'No se pudo registrar al entrenador: '+respuesta.msg,
+                text: 'No se pudo registrar al entrenador: ' + respuesta.msg,
                 type: 'error',
                 confirmButtonText: 'Entendido'
             });
@@ -72,4 +72,48 @@ function obtenerListaEntrenadores() {
     return respuesta;
 
     // return listaPersonas;
+}
+
+function agregarPokemon(id, sNombrePokemon, sNumeroPokemon) {
+    let respuesta = '';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/agregar_pokemon',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            _id: id,
+            nombre_pokemon: sNombrePokemon,
+            numero_pokemon: sNumeroPokemon
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+        if (respuesta.success) {
+            swal({
+                title: 'Captura exitosa',
+                text: 'El pokémon se capturó correctamente',
+                type: 'success',
+                confirmButtonText: '¡Genial!'
+            });
+            $('.swal2-confirm').click(function () {
+                location.reload();
+            });
+        } else {
+            swal({
+                title: 'Captura fallida.',
+                text: 'Algo salió muy mal: ' + respuesta.msg,
+                type: 'error',
+                confirmButtonText: 'Entendido'
+            });
+        }
+    });
+
+    peticion.fail(function (response) {
+
+    });
+
+    return respuesta;
 }

@@ -1,10 +1,17 @@
+'use strict';
+
 let tbody = document.querySelector('#tblEntrenador tbody');
 let listaEntrenador = obtenerListaEntrenadores();
 mostrarEntrenadores();
 
+function resetSearchHeight(){
+    $("html, body").animate({ scrollTop: "168px" });
+}
+
 let inputFiltro = document.querySelector('#txtFiltroNombre');
-inputFiltro.addEventListener('keyup', function(){
+inputFiltro.addEventListener('keyup', function () {
     mostrarEntrenadores(inputFiltro.value);
+    resetSearchHeight();
 });
 
 function mostrarEntrenadores(pFiltro) {
@@ -24,7 +31,7 @@ function mostrarEntrenadores(pFiltro) {
             let cCaptura = fila.insertCell();
 
             let imagen = document.createElement('div');
-            imagen.style.backgroundImage = "url('"+ getImgUrl( listaEntrenador[i]['foto_entrenador']) +"')";
+            imagen.style.backgroundImage = "url('" + getImgUrl(listaEntrenador[i]['foto_entrenador']) + "')";
             cFoto.appendChild(imagen);
 
             let nombreSpan = crearSpan(listaEntrenador[i]['nombre_entrenador']);
@@ -39,12 +46,24 @@ function mostrarEntrenadores(pFiltro) {
             let capturaSpan = document.createElement('span');
             capturaSpan.classList.add('far');
             capturaSpan.classList.add('fa-dot-circle');
+            capturaSpan.id = listaEntrenador[i]['_id'];
+
+            capturaSpan.addEventListener('click', function(){
+                localStorageEntrenador(listaEntrenador[i]['_id']);
+            });
 
             cCaptura.appendChild(capturaSpan);
         }
     };
 };
 
+function localStorageEntrenador(id){
+    localStorage.setItem('id_entrenador',id);
+    window.location.href = "../html/capturar.html";
+};
+function clearLocalStorage(){
+    window.localStorage.clear();
+}
 
 // Funcion que recibe un parametro y crea un span con ese texto.
 function crearSpan(pInfo) {

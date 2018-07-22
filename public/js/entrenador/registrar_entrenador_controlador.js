@@ -98,6 +98,6 @@ function limpiarFormulario() {
     inputNombreEntrenador.value = "";
     inputNumeroEntrenador.value = "";
     inputEdadEntrenador.value = "";
-    inputSexoEntrenador.value = "Seleccione una opción";
+    inputSexoEntrenador.value = "";
     resetImg();
 };

@@ -16,7 +16,7 @@ router.route('/listar_entrenador')
 
 router.route('/agregar_pokemon')
     .post(function (req, res) {
-        pokemonApi.agregar_pokemon(req, res);//pokemonApi aparecia como users
+        entrenadorApi.agregar_pokemon(req, res);
     });
 
 module.exports = router;
