@@ -134,12 +134,14 @@
     background: #3399cc;
     box-shadow: none;
     font-weight: 100;
-    box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 0px 0px;
-
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 20px 0px;
     position: absolute;
-    top: 110px;
-    right: 0px;
 }
+#btnCapturar{
+    top: 120px;
+    left: 263px;
+}
+
 .pokemon div.card  button:hover{
     background-color: #ff4455;
     box-shadow: none;

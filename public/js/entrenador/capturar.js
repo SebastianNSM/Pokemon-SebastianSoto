@@ -10,9 +10,20 @@ let sPokemon = "";
 
 let botonCapturar = document.querySelector('#btnCapturar');
 botonCapturar.addEventListener('click', obtenerDatos);
+inputPokemon.addEventListener('keyup', mostrarFotoPokemon);
 
 imprimirInfo();
 
+function mostrarFotoPokemon() {
+    sPokemon = inputPokemon.value;
+    let imgPokemonElegido = document.querySelector('#imgPokemonElegido');
+    if (pokemonExists(sPokemon.toLowerCase())) {
+        let infoPokemon = encontrarPokemon(sPokemon);
+        imgPokemonElegido.src = getImgUrl(infoPokemon['foto_pokemon'])
+    } else {
+        imgPokemonElegido.src = "../img/pokegif.gif";
+    }
+}
 // Inmediatamente agrega el nombre y los datos del entrenador
 function imprimirInfo() {
     createOptions();
@@ -43,14 +54,20 @@ function imprimirInfo() {
 
 function obtenerDatos() {
     sPokemon = inputPokemon.value;
-    let infoPokemon = encontrarPokemon(sPokemon);
-
-    let nombre_pokemon = infoPokemon['nombre_pokemon'];
-    let codigo_pokemon = infoPokemon['codigo_pokemon'];
-    agregarPokemon(id_entrenador, nombre_pokemon, codigo_pokemon);
-
-    let pkmImage = document.querySelector('#imgPokemonElegido');
-    pkmImage.src = getImgUrl(listaPokemon[i]['foto_pokemon']);
+    if (pokemonExists(sPokemon.toLocaleLowerCase())) {
+        let infoPokemon = encontrarPokemon(sPokemon);
+        let nombre_pokemon = infoPokemon['nombre_pokemon'];
+        let codigo_pokemon = infoPokemon['codigo_pokemon'];
+        agregarPokemon(id_entrenador, nombre_pokemon, codigo_pokemon);
+    } else {
+        // Error al capturar
+        swal({
+            title: 'Captura fallida.',
+            text: 'No has seleccionado un pokémon de la lista',
+            type: 'warning',
+            confirmButtonText: 'Entendido'
+        });
+    }
 }
 
 // Crea las opciones de los pokemones que ya estan registrados
@@ -84,7 +101,7 @@ function encontrarEntrenador(id_entrenador) {
 function encontrarPokemon(nombre_pokemon) {
     let infoPokemonCapturado = [];
     for (let i = 0; listaPokemon.length; i++) {
-        if (nombre_pokemon == listaPokemon[i]['nombre_pokemon']) {
+        if (nombre_pokemon.toLowerCase() == listaPokemon[i]['nombre_pokemon'].toLowerCase()) {
             infoPokemonCapturado['foto_pokemon'] = listaPokemon[i]['foto_pokemon'];
             infoPokemonCapturado['nombre_pokemon'] = listaPokemon[i]['nombre_pokemon'];
             infoPokemonCapturado['codigo_pokemon'] = listaPokemon[i]['codigo_pokemon'];
@@ -93,6 +110,20 @@ function encontrarPokemon(nombre_pokemon) {
     };
     return infoPokemonCapturado;
 }
+
+function pokemonExists(pokemon) {
+    let exists = false;
+    for (let i = 0; i < listaPokemon.length; i++) {
+        let nombrePokemonLista = listaPokemon[i]['nombre_pokemon'].toLowerCase();
+        if (nombrePokemonLista === pokemon) {
+            exists = true;
+            break;
+        } else {
+
+        }
+    };
+    return exists;
+};
 
 // Gets the current pokemon in the datalist and gets its image
 

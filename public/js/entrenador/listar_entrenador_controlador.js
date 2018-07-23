@@ -2,6 +2,8 @@
 
 let tbody = document.querySelector('#tblEntrenador tbody');
 let listaEntrenador = obtenerListaEntrenadores();
+
+clearLocalStorage();
 mostrarEntrenadores();
 
 function resetSearchHeight(){
