@@ -105,6 +105,10 @@ footer{
     padding: 5em 0 2em;
     background: #2b2a2a;
 }
+footer a{
+    color: white;
+    text-decoration: none;
+}
 footer h3{
     color: #ffffff;
     font-size: 1.5em;

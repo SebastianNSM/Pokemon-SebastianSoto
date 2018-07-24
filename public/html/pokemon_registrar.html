@@ -81,7 +81,7 @@
                             <button type="button" id="btnTipos" class="addImg">Agregar tipo</button>
                         </div>
                         <input id="txtNombrePokemon" type="text" placeholder="Nombre del pokémon" required>
-                        <input id="txtNumeroPokedex" type="number" placeholder="Código de la pokedex" required>
+                        <input id="txtNumeroPokedex" type="number" placeholder="Código de la pokedex" required min="1">
 
                         <button type="button" id="btnRegistrar">Registrar</button>
                     </form>
@@ -109,11 +109,11 @@
                 <ul>
                     <li>
                         <i class="fas fa-arrow-right"></i>
-                        <span>Tipos</span>
+                        <a href="../html/pokemon_listar.html">Tipos</a>
                     </li>
                     <li>
                         <i class="fas fa-arrow-right"></i>
-                        <span>Pokémones registrados</span>
+                        <a href="../html/pokemon_registrar.html">Registrar pokémones</a>
                     </li>
                 </ul>
             </div>
@@ -122,15 +122,16 @@
                 <ul>
                     <li>
                         <i class="fas fa-arrow-right"></i>
-                        <span>Captura un pokémon</span>
+                        <a href="../html/entrenador_listar.html">Captura un pokémon</a>
                     </li>
                     <li>
                         <i class="fas fa-arrow-right"></i>
-                        <span>Lista de entrenadores</span>
+                        <a href="../html/entrenador_listar.html">Listar entrenadores</a>
                     </li>
                 </ul>
             </div>
         </div>
+
     </footer>
     <!-- Jquey y Sweet alert -->
     <script src="../js/jquery v3.3.1.js"></script>
@@ -147,7 +148,7 @@
     <script src="../js/pokemon/servicio_pokemon.js"></script>
     <script src="../js/pokemon/tipos-pokemon.js"></script>
     <script src="../js/pokemon/registrar_pokemon_controlador.js"></script>
-    
+
 
 
     <!-- Scripts Extra -->

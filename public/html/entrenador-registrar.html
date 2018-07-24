@@ -58,12 +58,13 @@
                             <button type="button" id="btnSeleccionarImagen" class="addImg">Subir foto</button>
                         </div>
                         <input id="txtNombreEntrenador" type="text" placeholder="Nombre del entrenador" required>
-                        <input id="numNumeroEntrenador" type="number" placeholder="Número del entrenador" required>
+                        <input id="numNumeroEntrenador" type="number" placeholder="Número del entrenador" required min="1">
                         <input id="numEdadEntrenador" type="number" placeholder="Edad del entrenador" required min="16" max="79">
                         <select id="txtSexo">
                             <option value="">Seleccione un sexo</option>
                             <option value="Hombre">Hombre</option>
                             <option value="Mujer">Mujer</option>
+                            <option value="Otro">Otro</option>
                         </select>
 
                         <button type="button" id="btnRegistrar">Registrar</button>
@@ -93,11 +94,11 @@
                 <ul>
                     <li>
                         <i class="fas fa-arrow-right"></i>
-                        <span>Tipos</span>
+                        <a href="../html/pokemon_listar.html">Tipos</a>
                     </li>
                     <li>
                         <i class="fas fa-arrow-right"></i>
-                        <span>Pokémones registrados</span>
+                        <a href="../html/pokemon_registrar.html">Registrar pokémones</a>
                     </li>
                 </ul>
             </div>
@@ -106,15 +107,16 @@
                 <ul>
                     <li>
                         <i class="fas fa-arrow-right"></i>
-                        <span>Captura un pokémon</span>
+                        <a href="../html/entrenador_listar.html">Captura un pokémon</a>
                     </li>
                     <li>
                         <i class="fas fa-arrow-right"></i>
-                        <span>Lista de entrenadores</span>
+                        <a href="../html/entrenador_listar.html">Listar entrenadores</a>
                     </li>
                 </ul>
             </div>
         </div>
+
     </footer>
     <!-- Jquey y Sweet alert -->
     <script src="../js/jquery v3.3.1.js"></script>

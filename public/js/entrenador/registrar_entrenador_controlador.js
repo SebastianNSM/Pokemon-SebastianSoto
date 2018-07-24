@@ -58,7 +58,7 @@ function validar() {
         inputNombreEntrenador.classList.remove('errorInput');
     };
 
-    if(inputNumeroEntrenador.value == ""){
+    if(inputNumeroEntrenador.value == "" || nNumeroEntrenador < 1 ){
         bError = true;
         inputNumeroEntrenador.classList.add('errorInput');
     } else {
